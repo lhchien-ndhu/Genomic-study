@@ -7,3 +7,5 @@
 4. 下載 PLINK 1.9:    https://www.cog-genomics.org/plink/1.9/
 5. 利用 plink 處理檔案
    - 解壓縮 -> ped 檔 -> .raw 檔 (可用 R 讀取)
+## 2024.09.27
+使用 plink1.9: 20240927-plink_example
