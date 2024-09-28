@@ -1,0 +1,26 @@
+## 下載 1000 genome chr22
+## .vcf.gz
+## .vcf: 1000 genomes project text variant call format
+## .gz: 壓縮檔
+
+# window cmd
+D:
+cd D:\ndhu\meet\WKC\20240926
+dir
+#解壓縮並轉成 .bed ((PLINK binary biallelic genotype table))
+plink --vcf ALL_GGVP.chr22.shapeit2_integrated_snvindels_v1b_20200120.GRCh38.phased.vcf.gz --make-bed --out chr22
+##生成 chr22.bim:(PLINK extended MAP file)
+##     chr22.fam:(PLINK sample information file)
+##     chr22.bed:(PLINK binary biallelic genotype table)
+
+#將 .bed 轉存成 .ped
+plink --bfile chr22 --recode --out chr22_ped
+
+#coding 成 additive model，轉成.raw
+plink --bfile chr22 --recodeA --out chr22_r
+
+#刪除 maf<0.01 的位點
+plink --bfile chr22 --maf 0.01 --make-bed --out chr22_maf
+
+
+
